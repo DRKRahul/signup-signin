@@ -18,12 +18,12 @@ class UserService {
     }
   }
 
-  static async getUserCreds(id) {
+  static async findCredsCustom(field, value) {
     try {
+      const query = {};
+      query[field] = value;
       const theUser = await db.user_credentials.findOne({
-        where: {
-          email: id
-        }
+        where: query,
       });
       return theUser;
     } catch (error) {
@@ -34,6 +34,18 @@ class UserService {
   static async getAllUsers() {
     try {
       return await db.users.findAll();
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  static async changeCreds(id, body) {
+    try {
+      return await db.user_credentials.update(body, {
+        where: {
+          id
+        }
+      })
     } catch (error) {
       throw error;
     }
