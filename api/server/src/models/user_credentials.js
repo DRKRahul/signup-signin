@@ -4,6 +4,8 @@ module.exports = (sequelize, DataTypes) => {
     id: {
       type: DataTypes.STRING,
       allowNull: false,
+      autoIncrement: true,
+      primaryKey: true,
     },
     email: {
       type: DataTypes.STRING,
@@ -22,15 +24,15 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.DATE,
       allowNull: false,
     },
-    isActive:{
+    isActive: {
       type: DataTypes.BOOLEAN,
-      default:false,
+      defaultValue: false,
     },
-    createdAt:{
+    createdAt: {
       type: DataTypes.DATE,
       field: 'created'
     },
-    updatedAt:{
+    updatedAt: {
       type: DataTypes.DATE,
       field: 'updated',
     },
