@@ -1,2 +1,4 @@
 node_modules
 .env
+api/server/utils/private.key
+api/server/utils/public.key
