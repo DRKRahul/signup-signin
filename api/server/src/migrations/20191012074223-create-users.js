@@ -27,11 +27,11 @@ module.exports = {
       },
       hobbies: {
         type: Sequelize.TEXT,
-        allowNull: false,
+        allowNull: true,
       },
       dob:{
         type: Sequelize.DATE,
-        allowNull: true,
+        allowNull: false,
       },
       createdAt: {
         allowNull: false,
