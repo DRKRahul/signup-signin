@@ -30,7 +30,13 @@ export default class ErrorUtil {
       if (this.type === 'success') {
         return res.status(this.statusCode).json(result);
       }
-      console.log(this.message,this.type);
+
+      if(!this.statusCode){
+        this.statusCode = 500;
+        this.message = 'Internal server error';
+        this.type = 'error';
+      }
+      
       return res.status(this.statusCode).json({
         status: this.type,
         message: this.message,

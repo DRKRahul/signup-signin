@@ -7,5 +7,7 @@ router.get('/', userController.getAllUsers);
 router.post('/', userController.addUser);
 router.get('/verify', userController.verifyEmail);
 router.post('/login', userController.loginUser);
+router.put('/:userId', userController.updateUserDetails);
+router.post('/token', userController.getAccessToken);
 
 export default router;

@@ -50,6 +50,19 @@ class UserService {
       throw error;
     }
   }
+
+  static async updateUserDetails(id, body) {
+    try {
+      return await db.users.update(body, {
+        where: {
+          id
+        },
+        fields: ['gender','name','dob','location','hobbies']
+      })
+    } catch (error) {
+      throw error;
+    }
+  }
 }
 
 export default UserService;

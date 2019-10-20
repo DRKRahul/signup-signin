@@ -17,7 +17,7 @@ export default class Emailer {
       throw new Error('Missing info for verification');
     }
     try {
-      const link = `${process.env.HOMEPAGE}/api/v1/users/verify?id=${token}`
+      const link = `http://localhost:8000/api/v1/users/verify?id=${token}`
       const mailOptions = {
         to: userEmail,
         subject: "Please confirm your Email account",

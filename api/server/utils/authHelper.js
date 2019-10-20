@@ -39,9 +39,16 @@ export default class AuthHelper {
         algorithm:  ["RS256"]
     };
     try{
-      return jwt.verify(token, publicKEY, verifyOptions);
-    }catch (err){
-      return false;
+      return await jwt.verify(token, publicKEY, verifyOptions);
+    } catch(err){
+      if(err.message === 'jwt expired'){
+        return true
+      }
+      throw err;
     }
   };
+
+  static async decoder(token){
+    return await jwt.decode(token);
+  }
 }
